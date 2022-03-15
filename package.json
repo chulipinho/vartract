@@ -1,0 +1,19 @@
+{
+  "name": "vartract",
+  "version": "1.0.0",
+  "description": "Docx variable replacer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chulipinho/vartract.git"
+  },
+  "author": "chulipinho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chulipinho/vartract/issues"
+  },
+  "homepage": "https://github.com/chulipinho/vartract#readme"
+}
