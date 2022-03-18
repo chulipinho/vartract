@@ -1,0 +1,8 @@
+{
+    "main-screen": {
+        "first-line": "To use Vartract replace all fields you want in your docx file for Vartract's variables.",
+        "second-line": "Vartract's variables are written on the following format: [\\name of your variable].",
+        "third-line": "The program will scan for them and generate each field required.",
+        "button-text": "SELECT A FILE"
+    }
+}
