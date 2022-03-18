@@ -6,6 +6,7 @@ export const MainText = styled.p`
 `;
 
 export const Title = styled.h1`
+    margin: 0;
     font-size: 100px;
     font-family: 'Fredoka', sans-serif;
     font-weight: 500;
