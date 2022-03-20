@@ -1,7 +1,7 @@
 import React from "react";
 import { MainBody } from "../../Assets/styles/MainBody";
 import { MainText, Title } from "../../Assets/styles/TextStyles";
-import {ButtonComponent} from "../../Components/Button";
+import { InputButtonComponent } from "../../Components/InputButton";
 
 const LANGUAGE = 'en';
 const appTexts = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
@@ -23,9 +23,7 @@ export default class MainScreen extends React.Component {
                 <MainText>
                     {appTexts["main-screen"]["third-line"]}
                 </MainText>
-                <ButtonComponent>
-                    {appTexts["main-screen"]["button-text"]}
-                </ButtonComponent>
+                <InputButtonComponent id="docx-file" text={appTexts["main-screen"]["button-text"]}/>
             </MainBody>
 
         )
