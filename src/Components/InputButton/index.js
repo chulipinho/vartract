@@ -21,7 +21,7 @@ export const InputButtonComponent = ({ id, text }) => {
     const navigate = useNavigate();
 
     function handleChange (file) {
-        navigate('edit', {state: file});
+        navigate('/edit', {state: file});
     }
 
     return (
