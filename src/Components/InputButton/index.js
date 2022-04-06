@@ -1,5 +1,6 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { loadFile } from "../../Services/fileOperations/editFile";
 
 const StyledLabel = styled.label`
     color: #F2F2F2;
@@ -18,11 +19,16 @@ const StyledLabel = styled.label`
 `;
 
 export const InputButtonComponent = ({ id, text }) => {
+    const navigate = useNavigate();
 
-    return(
+    function handleChange (file) {
+        navigate('edit', {state: file});
+    }
+
+    return (
         <>
-            <StyledLabel for={id}>{text}</StyledLabel>
-            <input id={id} type="file" accept=".docx" style={{display: "none"}}/>
+            <StyledLabel htmlFor={id}>{text}</StyledLabel>
+            <input id={id} onChange={(e) => handleChange(e.target.files[0])} type="file" accept=".docx" style={{ display: "none" }} />
         </>
     );
 };
