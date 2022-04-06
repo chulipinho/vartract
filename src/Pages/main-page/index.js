@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { MainBody } from "../../Assets/styles/MainBody";
 import { MainText, Title } from "../../Assets/styles/TextStyles";
 import { InputButtonComponent } from "../../Components/InputButton";
