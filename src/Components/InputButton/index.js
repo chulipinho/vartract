@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { loadFile } from "../../Services/fileOperations/editFile";
 
 const StyledLabel = styled.label`
     color: #F2F2F2;
