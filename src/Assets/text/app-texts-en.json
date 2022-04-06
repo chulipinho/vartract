@@ -9,6 +9,12 @@
     "edit-page": {
         "title": "Your fields",
         "instructions": "Please, fill the form fields acordingly then press the submit button to download your file.",
-        "button": "SUBMIT"
+        "button": "SUBMIT",
+        "no-fields": {
+            "title": "Oops...",
+            "first-line": "We couldn't find any fields in your document. Be shure to fomat the correctly like: [\\desired field]",
+            "button-label": "In case you've selected the wrong file, try selecting a new one!",
+            "button-text": "SELECT ANOTHER FILE"
+        }
     }
 }
