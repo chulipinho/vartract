@@ -22,7 +22,7 @@ const newZipFile = (originalFile, newContent) => {
     newFile.file('word/document.xml', newContent);
   });
   
-  return newFile;
+  return zip;
 }
 
 export const getNewFile = async (originalFile, newData) => {
