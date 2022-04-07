@@ -4,7 +4,7 @@ import { EditPageBody } from "../../Assets/styles/EditPageBody";
 import { TextInputField } from "../../Components/TextInputField";
 import { MainText, Title } from "../../Assets/styles/TextStyles";
 import { SubmitComponent } from "../../Components/Button";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { getFieldsFrom } from "../../Services/fileOperations/loadFile";
 import { CircularSpinner } from "../../Components/CircularSpinner";
 
@@ -19,6 +19,7 @@ const FormatedDiv = styled.div`
 export const EditPage = () => {
     const location = useLocation();
     const file = location.state;
+    const navigate = useNavigate();
     const [fields, setFields] = useState(null);
     const [state, setState] = useState("loading");
     const [formData, setFormData] = useState({});
@@ -43,7 +44,11 @@ export const EditPage = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(formData);
+
+        navigate('/download-page', {state: {
+            file: file,
+            data: formData
+        }});
     }
 
     function handleChange(e) {

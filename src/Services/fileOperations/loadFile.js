@@ -2,7 +2,7 @@ import JSZip from "jszip";
 
 const DATA_FORMAT_REGEX = /(?<=\[\\)(.*?)(?=\])/g;
 
-const getContentFromFile = async (file) => {
+export const getContentFromFile = async (file) => {
     const data = await JSZip.loadAsync(file);
     const content = await data.files["word/document.xml"].async("string");
 
