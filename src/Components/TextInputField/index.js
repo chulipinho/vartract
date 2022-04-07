@@ -24,10 +24,10 @@ const FormatedInput = styled.input`
     box-sizing: border-box;
 `;
 
-export const TextInputField = ({ name }) => {
+export const TextInputField = ({ name, onChange }) => {
     return(
         <FormatedDiv>
-            <FormatedInput name={name} id={name}/>
+            <FormatedInput name={name} id={name} onChange={onChange}/>
             <FormatedLabel htmlFor={name}>
                 {name}
             </FormatedLabel>

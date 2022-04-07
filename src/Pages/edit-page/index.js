@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { EditPageBody } from "../../Assets/styles/EditPageBody";
 import { TextInputField } from "../../Components/TextInputField";
 import { MainText, Title } from "../../Assets/styles/TextStyles";
-import { ButtonComponent } from "../../Components/Button";
+import { SubmitComponent } from "../../Components/Button";
 import { Navigate, useLocation } from "react-router-dom";
 import { getFieldsFrom } from "../../Services/fileOperations/loadFile";
 import { CircularSpinner } from "../../Components/CircularSpinner";
@@ -21,6 +21,7 @@ export const EditPage = () => {
     const file = location.state;
     const [fields, setFields] = useState(null);
     const [state, setState] = useState("loading");
+    const [formData, setFormData] = useState({});
 
     useEffect(() => {
         let isMounted = true;
@@ -36,25 +37,38 @@ export const EditPage = () => {
         };
     }, [file, state]);
 
-    if (!file) {
-        return <Navigate to="/" replace />;
+    if (!file) return <Navigate to="/" replace />;
+    if (state === "loading") return <CircularSpinner />;
+    if (!fields) return <Navigate to="/no-fields" replace />;
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(formData);
     }
 
-    if (state === "loading") return <CircularSpinner />;
+    function handleChange(e) {
+        const data = formData;
+        const name = e.target.name;
+        const value = e.target.value;
 
-    if (!fields) return <Navigate to="/no-fields" replace />;
+        data[name] = value;
+
+        setFormData(data);
+    }
 
     return (
         <EditPageBody>
             <FormatedDiv>
                 <Title>{appText["edit-page"].title}</Title>
                 <MainText>{appText["edit-page"].instructions}</MainText>
-                <form>
+                <form onSubmit={handleSubmit}>
                     {fields.map((e) => {
-                        return <TextInputField key={e} name={e} />;
+                        return <TextInputField key={e} name={e} onChange={handleChange} />;
                     })}
+                    <SubmitComponent id='formSubmit'>
+                        {appText["edit-page"].button}
+                    </SubmitComponent>
                 </form>
-                <ButtonComponent onClick={() => {}}>{appText["edit-page"].button}</ButtonComponent>
             </FormatedDiv>
         </EditPageBody>
     );
