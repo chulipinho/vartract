@@ -26,6 +26,8 @@ const newZipFile = (originalFile, newContent) => {
 }
 
 export const getNewFile = async (originalFile, newData) => {
+  if(!originalFile || !newData) return;
+
   const originalContent = await getContentFromFile(originalFile);
   const newContent = createNewXmlContent(originalContent, newData);
 
