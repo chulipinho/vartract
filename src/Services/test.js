@@ -10,7 +10,6 @@ const fs = require("fs");
             let file = data.files["word/document.xml"];
             
             let content = await file.async("string");
-            console.log(content);
             
             fs.writeFile("test.xml", content, () => {});
         });
