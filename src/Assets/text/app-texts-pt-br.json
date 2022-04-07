@@ -1,0 +1,20 @@
+{
+    "app-title": "Vartract",
+    "main-screen": {
+        "first-line": "Para usar o Vartract substitua todo conteúdo desejado do seu arquivo docx pelas variáveis do Vartract.",
+        "second-line": "As variáveis do Vartract são escritas no seguinte formato: [\\nome da sua variável].",
+        "third-line": "O programa irá escanear seu documento e gerar uma página com cada um dos campos desejados.",
+        "button-text": "SELECIONE UM ARQUIVO"
+    },
+    "edit-page": {
+        "title": "Seus campos",
+        "instructions": "Por favor, preencha os campos do formulário da forma como desejar. Depois basta pressionar o botão enviar para baixar seu arquivo.",
+        "button": "ENVIAR",
+        "no-fields": {
+            "title": "Oops...",
+            "first-line": "Não conseguimos encontrar nenhuma variável no seu documento. Veja se formatou da forma correta: [\\nome da variável]",
+            "button-label": "Caso você tenha selecionado o arquivo errado, tente selecionar um arquivo diferente!",
+            "button-text": "SELECIONE OUTRO ARQUIVO"
+        }
+    }
+}
