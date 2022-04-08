@@ -7,6 +7,7 @@ import { SubmitComponent } from "../../Components/Submit";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { getFieldsFrom } from "../../Services/fileOperations/loadFile";
 import { CircularSpinner } from "../../Components/CircularSpinner";
+import { SizedBox } from "Components/SizedBox";
 
 const LANGUAGE = "en";
 const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
@@ -14,6 +15,11 @@ const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
 const FormatedDiv = styled.div`
     padding: 0 50px;
     width: 80%;
+
+    @media screen and (max-width: 800px) {
+        padding: 0 20px;
+        width: auto;
+    }
 `;
 
 export const EditPage = () => {
@@ -66,6 +72,7 @@ export const EditPage = () => {
             <FormatedDiv>
                 <Title>{appText["edit-page"].title}</Title>
                 <MainText>{appText["edit-page"].instructions}</MainText>
+                <SizedBox height='20px' responsive={true} />
                 <form onSubmit={handleSubmit}>
                     {fields.map((e) => {
                         return <TextInputField key={e} name={e} onChange={handleChange} />;
