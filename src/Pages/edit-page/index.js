@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { EditPageBody } from "../../Assets/styles/EditPageBody";
 import { TextInputField } from "../../Components/TextInputField";
 import { MainText, Title } from "../../Assets/styles/TextStyles";
-import { SubmitComponent } from "../../Components/Button";
+import { SubmitComponent } from "../../Components/Submit";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { getFieldsFrom } from "../../Services/fileOperations/loadFile";
 import { CircularSpinner } from "../../Components/CircularSpinner";
