@@ -5,6 +5,11 @@ import { Navigate, useLocation } from "react-router-dom";
 import { getNewFile } from "Services/fileOperations/createNewFile";
 import { saveAs } from "file-saver";
 import { CircularSpinner } from "Components/CircularSpinner";
+import { DownloadButtonComponent } from "Components/DownloadButton";
+import { MainText, Title } from "Assets/styles/TextStyles";
+
+const LANGUAGE = "en";
+const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
 
 export const DownloadPage = () => {
     const location = useLocation();
@@ -43,8 +48,16 @@ export const DownloadPage = () => {
     if (state === "loading") return <CircularSpinner />;
 
     return (
-        <MainBody>
-            <button onClick={download}>download</button>
+        <MainBody style={{'text-align': 'center'}}>
+            <Title>{appText["download-page"].title}</Title>
+            <MainText>{appText["download-page"]["first-line"]}</MainText>
+            <MainText style={{"margin-bottom": "50px"}}>{appText["download-page"]["second-line"]}</MainText>
+            <DownloadButtonComponent onClick={download}>
+                {appText["download-page"]["download-docx"]}
+            </DownloadButtonComponent>
+            <DownloadButtonComponent onClick={download}>
+                {appText["download-page"]["download-pdf"]}
+            </DownloadButtonComponent>
         </MainBody>
     );
 };
