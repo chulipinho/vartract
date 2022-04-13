@@ -42,7 +42,7 @@ export const DownloadPage = () => {
     function downloadDocx() {
         newFile
             .generateAsync({ type: "blob" })
-            .then((file) => saveAs(file, "a.docx"));
+            .then((file) => saveAs(file, locationState.file.name));
     }
     function downloadPdf() {
         docxToPdf();
@@ -52,10 +52,10 @@ export const DownloadPage = () => {
     if (state === "loading") return <CircularSpinner />;
 
     return (
-        <MainBody style={{ "text-align": "center" }}>
+        <MainBody style={{ "textAlign": "center" }}>
             <Title>{appText["download-page"].title}</Title>
             <MainText>{appText["download-page"]["first-line"]}</MainText>
-            <MainText style={{ "margin-bottom": "50px" }}>
+            <MainText style={{ "marginBottom": "50px" }}>
                 {appText["download-page"]["second-line"]}
             </MainText>
             <DownloadButtonComponent onClick={downloadDocx}>
