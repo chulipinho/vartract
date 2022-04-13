@@ -8,8 +8,11 @@ module.exports = function override(config, env) {
         "util": false,
         "buffer": false,
         "fs": false,
-        "child_process": false
+        "child_process": false,
+        "path": false
     };
+
+    config.stats = 'errors-only';
 
     return config;
 }
