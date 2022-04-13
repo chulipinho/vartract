@@ -7,6 +7,7 @@ import { saveAs } from "file-saver";
 import { CircularSpinner } from "Components/CircularSpinner";
 import { DownloadButtonComponent } from "Components/DownloadButton";
 import { MainText, Title } from "Assets/styles/TextStyles";
+import { docxToPdf } from "../../Services/fileOperations/docxToPdf";
 
 const LANGUAGE = "en";
 const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
@@ -38,24 +39,29 @@ export const DownloadPage = () => {
         };
     }, [locationState]);
 
-    function download() {
+    function downloadDocx() {
         newFile
             .generateAsync({ type: "blob" })
             .then((file) => saveAs(file, "a.docx"));
+    }
+    function downloadPdf() {
+        docxToPdf();
     }
 
     if (!locationState) return <Navigate to="/" replace />;
     if (state === "loading") return <CircularSpinner />;
 
     return (
-        <MainBody style={{'text-align': 'center'}}>
+        <MainBody style={{ "text-align": "center" }}>
             <Title>{appText["download-page"].title}</Title>
             <MainText>{appText["download-page"]["first-line"]}</MainText>
-            <MainText style={{"margin-bottom": "50px"}}>{appText["download-page"]["second-line"]}</MainText>
-            <DownloadButtonComponent onClick={download}>
+            <MainText style={{ "margin-bottom": "50px" }}>
+                {appText["download-page"]["second-line"]}
+            </MainText>
+            <DownloadButtonComponent onClick={downloadDocx}>
                 {appText["download-page"]["download-docx"]}
             </DownloadButtonComponent>
-            <DownloadButtonComponent onClick={download}>
+            <DownloadButtonComponent onClick={downloadPdf}>
                 {appText["download-page"]["download-pdf"]}
             </DownloadButtonComponent>
         </MainBody>
