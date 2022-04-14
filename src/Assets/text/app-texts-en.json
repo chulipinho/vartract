@@ -19,7 +19,7 @@
     },
     "download-page": {
         "title": "Your file is ready!",
-        "first-line": "We've set up everything on your file and it's ready for download ",
+        "first-line": "We've set up everything on your file and it's ready for download",
         "second-line": "Thanks for using Vartract!",
         "download-docx": "Download .docx",
         "download-pdf": "Download .pdf"
