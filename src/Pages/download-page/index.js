@@ -7,7 +7,6 @@ import { saveAs } from "file-saver";
 import { CircularSpinner } from "Components/CircularSpinner";
 import { DownloadButtonComponent } from "Components/DownloadButton";
 import { MainText, Title } from "Assets/styles/TextStyles";
-import { docxToPdf } from "../../Services/fileOperations/docxToPdf";
 
 const LANGUAGE = "en";
 const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
@@ -44,9 +43,6 @@ export const DownloadPage = () => {
             .generateAsync({ type: "blob" })
             .then((file) => saveAs(file, locationState.file.name));
     }
-    function downloadPdf() {
-        docxToPdf();
-    }
 
     if (!locationState) return <Navigate to="/" replace />;
     if (state === "loading") return <CircularSpinner />;
@@ -60,9 +56,6 @@ export const DownloadPage = () => {
             </MainText>
             <DownloadButtonComponent onClick={downloadDocx}>
                 {appText["download-page"]["download-docx"]}
-            </DownloadButtonComponent>
-            <DownloadButtonComponent onClick={downloadPdf}>
-                {appText["download-page"]["download-pdf"]}
             </DownloadButtonComponent>
         </MainBody>
     );
