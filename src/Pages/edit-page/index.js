@@ -22,6 +22,11 @@ const FormatedDiv = styled.div`
     }
 `;
 
+const Body = styled.div`
+    height: 100vh;
+    background-color: #F2F2F2;
+`;
+
 export const EditPage = () => {
     const location = useLocation();
     const file = location.state;
@@ -51,10 +56,12 @@ export const EditPage = () => {
     function handleSubmit(e) {
         e.preventDefault();
 
-        navigate('/download-page', {state: {
-            file: file,
-            data: formData
-        }});
+        navigate("/download-page", {
+            state: {
+                file: file,
+                data: formData,
+            },
+        });
     }
 
     function handleChange(e) {
@@ -68,20 +75,28 @@ export const EditPage = () => {
     }
 
     return (
-        <EditPageBody>
-            <FormatedDiv>
-                <Title>{appText["edit-page"].title}</Title>
-                <MainText>{appText["edit-page"].instructions}</MainText>
-                <SizedBox height='20px' responsive={true} />
-                <form onSubmit={handleSubmit}>
-                    {fields.map((e) => {
-                        return <TextInputField key={e} name={e} onChange={handleChange} />;
-                    })}
-                    <SubmitComponent id='formSubmit'>
-                        {appText["edit-page"].button}
-                    </SubmitComponent>
-                </form>
-            </FormatedDiv>
-        </EditPageBody>
+        <Body>
+            <EditPageBody>
+                <FormatedDiv>
+                    <Title>{appText["edit-page"].title}</Title>
+                    <MainText>{appText["edit-page"].instructions}</MainText>
+                    <SizedBox height="20px" responsive={true} />
+                    <form onSubmit={handleSubmit}>
+                        {fields.map((e) => {
+                            return (
+                                <TextInputField
+                                    key={e}
+                                    name={e}
+                                    onChange={handleChange}
+                                />
+                            );
+                        })}
+                        <SubmitComponent id="formSubmit">
+                            {appText["edit-page"].button}
+                        </SubmitComponent>
+                    </form>
+                </FormatedDiv>
+            </EditPageBody>
+        </Body>
     );
 };
