@@ -9,8 +9,11 @@ export const getContentFromFile = async (file) => {
     return content;
 };
 
-const getContentFields = async (content) => {
-    return content.match(DATA_FORMAT_REGEX);
+const getContentFields = (content) => {
+    const fields = content.match(DATA_FORMAT_REGEX);
+    const noRepeatFields = fields.filter((value, index, arr) => arr.indexOf(value) === index);
+
+    return noRepeatFields;
 };
 
 export const getFieldsFrom = async (file) => {

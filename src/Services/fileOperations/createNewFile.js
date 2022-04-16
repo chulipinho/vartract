@@ -8,7 +8,7 @@ const createNewXmlContent = (originalContent, newData) => {
         const key = entry[0];
         const value = entry[1];
 
-        newContent = newContent.replace(`[\\${key}]`, value);
+        newContent = newContent.replaceAll(`[\\${key}]`, value);
     });
 
     return newContent;
