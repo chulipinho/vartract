@@ -8,7 +8,7 @@
 
 1. [How to use](#how-to-use)
   
-2. [Dependencies](#dependencies)
+2. [Frameworks](#frameworks)
   
 3. [Developed by](#developed-by)
   
@@ -27,26 +27,13 @@ If the program identifies two or more variables with the same name, it will only
 
 At the time the app supports only DOCX files for both input and output. It is planned to add support for other formats such as DOC and PDF on future versions.
 
-## Dependencies
+## Frameworks
 
-- bootstrap: ^5.1.3
+- React
   
-- file-saver: ^2.0.5
+- Bootstrap
   
-- jszip: ^3.7.1
-  
-- react: ^17.0.2
-  
-- react-bootstrap: ^2.2.3
-  
-- react-dom: ^17.0.2
-  
-- react-router-dom: ^6.3.0
-  
-- react-scripts: 5.0.0
-  
-- styled-components: ^5.3.3
-  
+- Jest
 
 ---
 
