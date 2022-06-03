@@ -8,9 +8,7 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { getFieldsFrom } from "../../Services/fileOperations/loadFile";
 import { CircularSpinner } from "../../Components/CircularSpinner";
 import { SizedBox } from "Components/SizedBox";
-
-const LANGUAGE = "en";
-const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
+import { useTranslation } from "react-i18next";
 
 const FormatedDiv = styled.div`
     padding: 0 50px;
@@ -24,7 +22,7 @@ const FormatedDiv = styled.div`
 
 const Body = styled.div`
     height: 100vh;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
 `;
 
 export const EditPage = () => {
@@ -34,6 +32,7 @@ export const EditPage = () => {
     const [fields, setFields] = useState(null);
     const [state, setState] = useState("loading");
     const [formData, setFormData] = useState({});
+    const { t } = useTranslation("edit-page");
 
     useEffect(() => {
         let isMounted = true;
@@ -45,7 +44,7 @@ export const EditPage = () => {
         });
 
         return () => {
-            isMounted = true;
+            isMounted = false;
         };
     }, [file, state]);
 
@@ -78,8 +77,8 @@ export const EditPage = () => {
         <Body>
             <EditPageBody>
                 <FormatedDiv>
-                    <Title>{appText["edit-page"].title}</Title>
-                    <MainText>{appText["edit-page"].instructions}</MainText>
+                    <Title>{t("title")}</Title>
+                    <MainText>{t("instructions")}</MainText>
                     <SizedBox height="20px" responsive={true} />
                     <form onSubmit={handleSubmit}>
                         {fields.map((e) => {
@@ -92,7 +91,7 @@ export const EditPage = () => {
                             );
                         })}
                         <SubmitComponent id="formSubmit">
-                            {appText["edit-page"].button}
+                            {t("button")}
                         </SubmitComponent>
                     </form>
                 </FormatedDiv>
