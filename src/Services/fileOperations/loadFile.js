@@ -11,13 +11,17 @@ export const getContentFromFile = async (file) => {
 
 const getContentFields = (content) => {
     const fields = content.match(DATA_FORMAT_REGEX);
-    const noRepeatFields = fields.filter((value, index, arr) => arr.indexOf(value) === index);
+    if (!fields) return;
+
+    const noRepeatFields = fields.filter(
+        (value, index, arr) => arr.indexOf(value) === index
+    );
 
     return noRepeatFields;
 };
 
 export const getFieldsFrom = async (file) => {
-    if(!file) return;
+    if (!file) return;
 
     const string = await getContentFromFile(file);
     const fields = await getContentFields(string);
