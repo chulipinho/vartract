@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/vartract/static/css/main.1a8a0596.css",
-    "main.js": "/vartract/static/js/main.93882128.js",
+    "main.js": "/vartract/static/js/main.73a05e7a.js",
     "index.html": "/vartract/index.html",
     "main.1a8a0596.css.map": "/vartract/static/css/main.1a8a0596.css.map",
-    "main.93882128.js.map": "/vartract/static/js/main.93882128.js.map"
+    "main.73a05e7a.js.map": "/vartract/static/js/main.73a05e7a.js.map"
   },
   "entrypoints": [
     "static/css/main.1a8a0596.css",
-    "static/js/main.93882128.js"
+    "static/js/main.73a05e7a.js"
   ]
 }
