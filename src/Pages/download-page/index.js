@@ -7,15 +7,14 @@ import { saveAs } from "file-saver";
 import { CircularSpinner } from "Components/CircularSpinner";
 import { DownloadButtonComponent } from "Components/DownloadButton";
 import { MainText, Title } from "Assets/styles/TextStyles";
-
-const LANGUAGE = "en";
-const appText = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
+import { useTranslation } from "react-i18next";
 
 export const DownloadPage = () => {
     const location = useLocation();
     const locationState = location.state;
     const [newFile, setNewFile] = useState();
     const [state, setState] = useState("loading");
+    const { t } = useTranslation("download-page");
 
     useEffect(() => {
         let isMounted = true;
@@ -48,14 +47,14 @@ export const DownloadPage = () => {
     if (state === "loading") return <CircularSpinner />;
 
     return (
-        <MainBody style={{ "textAlign": "center" }}>
-            <Title>{appText["download-page"].title}</Title>
-            <MainText>{appText["download-page"]["first-line"]}</MainText>
-            <MainText style={{ "marginBottom": "50px" }}>
-                {appText["download-page"]["second-line"]}
+        <MainBody style={{ textAlign: "center" }}>
+            <Title>{t("title")}</Title>
+            <MainText>{t("first-line")}</MainText>
+            <MainText style={{ marginBottom: "50px" }}>
+                {t("second-line")}
             </MainText>
             <DownloadButtonComponent onClick={downloadDocx}>
-                {appText["download-page"]["download-docx"]}
+                {t("download-docx")}
             </DownloadButtonComponent>
         </MainBody>
     );

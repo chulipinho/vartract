@@ -2,28 +2,18 @@ import React from "react";
 import { MainBody } from "../../Assets/styles/MainBody";
 import { MainText, Title } from "../../Assets/styles/TextStyles";
 import { InputButtonComponent } from "../../Components/InputButton";
-
-const LANGUAGE = 'en';
-const appTexts = require(`../../Assets/text/app-texts-${LANGUAGE}.json`);
-
+import { useTranslation } from "react-i18next";
 
 export const MainScreen = () => {
+    const { t } = useTranslation("main-screen");
 
     return (
-
         <MainBody>
             <Title>Vartract</Title>
-            <MainText>
-                {appTexts["main-screen"]["first-line"]}
-            </MainText>
-            <MainText>
-                {appTexts["main-screen"]["second-line"]}
-            </MainText>
-            <MainText>
-                {appTexts["main-screen"]["third-line"]}
-            </MainText>
-            <InputButtonComponent id='file-input' text={appTexts["main-screen"]["button-text"]} />
+            <MainText>{t("first-line")}</MainText>
+            <MainText>{t("second-line")}</MainText>
+            <MainText>{t("third-line")}</MainText>
+            <InputButtonComponent id="file-input" text={t("button-text")} />
         </MainBody>
-
-    )
+    );
 };
