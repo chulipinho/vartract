@@ -17,7 +17,7 @@
 
 ## How to use
 
-You can access the web application by clicking [here](Vartracthttps://chulipinho.github.io/vartract/).
+You can access the web application by clicking [here](https://chulipinho.github.io/vartract/).
 
 To use Vartract you need to replace the variable information on your document file by Vartract's variables:
 
